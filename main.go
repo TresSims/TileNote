@@ -13,7 +13,7 @@ import (
 	"github.com/zserge/lorca"
 )
 
-//go:embed TileNoteSrc/out/_next
+//go:embed TileNoteSrc/out
 var fs embed.FS
 
 func main() {
@@ -37,7 +37,7 @@ func main() {
 	}
 	defer ln.Close()
 	go http.Serve(ln, http.FileServer(http.FS(fs)))
-	ui.Load(fmt.Sprintf("http://%s/TileNoteSrc/out/_next", ln.Addr()))
+	ui.Load(fmt.Sprintf("http://%s/TileNoteSrc/out/", ln.Addr()))
 
 	sigc := make(chan os.Signal)
 	signal.Notify(sigc, os.Interrupt)
