@@ -1,9 +1,7 @@
-all: bin
-
-bin: js 
+TileNote: TileNoteSrc/out
 	go build
 
-js: 
+TileNoteSrc/out:
 	$(MAKE) -C TileNoteSrc
 
 clean:

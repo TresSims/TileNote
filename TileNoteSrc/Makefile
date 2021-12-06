@@ -1,8 +1,9 @@
-all: deps
+out: node_modules
 	yarn build
 
-deps:
+node_modules:
 	yarn install
 
 clean:
 	rm -rf out
+	rm -rf node_modules
