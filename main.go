@@ -13,6 +13,7 @@ import (
 	"github.com/zserge/lorca"
 )
 
+//Mount exported next.js project
 //go:embed TileNoteSrc/out
 var fs embed.FS
 
@@ -21,6 +22,8 @@ func main() {
 	if runtime.GOOS == "linux" {
 		args = append(args, "--class=Lorca")
 	}
+
+	// create empty ui
 	ui, err := lorca.New("", "", 480, 320, args...)
 	if err != nil {
 		log.Fatal(err)
